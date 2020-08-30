@@ -5,7 +5,49 @@ using Avalonia.Controls;
 using Avalonia.LogicalTree;
 
 namespace Dock.Avalonia.Controls
-{
+{   
+    /// <summary>
+    /// Custom grid.
+    /// </summary>
+    public class CustomGrid : Grid
+    {
+        /// <summary>
+        /// Initialize the new instance of the <see cref="CustomGrid"/>.
+        /// </summary>
+        public CustomGrid()
+        {
+            Debug.WriteLine($"[{Name}] CustomGrid()");
+        }
+
+        /// <inheritdoc/>
+        protected override void OnAttachedToLogicalTree(LogicalTreeAttachmentEventArgs e)
+        {
+            base.OnAttachedToLogicalTree(e);
+            Debug.WriteLine($"[{Name}] {nameof(OnAttachedToLogicalTree)}");
+        }
+
+        /// <inheritdoc/>
+        protected override void OnDetachedFromLogicalTree(LogicalTreeAttachmentEventArgs e)
+        {
+            base.OnDetachedFromLogicalTree(e);
+            Debug.WriteLine($"[{Name}] {nameof(OnDetachedFromLogicalTree)}");
+        }
+
+        /// <inheritdoc/>
+        protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
+        {
+            base.OnAttachedToVisualTree(e);
+            Debug.WriteLine($"[{Name}] {nameof(OnAttachedToVisualTree)}");
+        }
+
+        /// <inheritdoc/>
+        protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)
+        {
+            base.OnDetachedFromVisualTree(e);
+            Debug.WriteLine($"[{Name}] {nameof(OnDetachedFromVisualTree)}");
+        }
+    }
+
     /// <summary>
     /// Content decorator control.
     /// </summary>
