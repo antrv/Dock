@@ -18,12 +18,14 @@ namespace Dock.Avalonia.Controls
         /// </summary>
         public ContentDecorator()
         {
+            Debug.WriteLine($"[{_id}] ContentDecorator()");
+
             this.GetObservable(ChildProperty).Subscribe(child =>
             {
                 Debug.WriteLine($"[{_id}] Child.Parent={child?.Parent} (Child.Name={child?.Name})");
                 if (child?.Parent is ContentDecorator contentDecorator)
                 {
-                    Debug.WriteLine($"[{_id}] [Child.Parent._id]={contentDecorator._id}");
+                    Debug.WriteLine($"    [{_id}] Child.Parent._id={contentDecorator._id}");
                 }
             });
         }
@@ -33,6 +35,10 @@ namespace Dock.Avalonia.Controls
         {
             base.OnAttachedToLogicalTree(e);
             Debug.WriteLine($"[{_id}] {nameof(OnAttachedToLogicalTree)} (Child.Name={Child?.Name})");
+            if (Child?.Parent is ContentDecorator contentDecorator)
+            {
+                Debug.WriteLine($"   [{_id}] Child.Parent._id={contentDecorator._id}");
+            }
         }
 
         /// <inheritdoc/>
@@ -40,6 +46,10 @@ namespace Dock.Avalonia.Controls
         {
             base.OnDetachedFromLogicalTree(e);
             Debug.WriteLine($"[{_id}] {nameof(OnDetachedFromLogicalTree)} (Child.Name={Child?.Name})");
+            if (Child?.Parent is ContentDecorator contentDecorator)
+            {
+                Debug.WriteLine($"    [{_id}] Child.Parent._id={contentDecorator._id}");
+            }
         }
 
         /// <inheritdoc/>
@@ -47,6 +57,10 @@ namespace Dock.Avalonia.Controls
         {
             base.OnAttachedToVisualTree(e);
             Debug.WriteLine($"[{_id}] {nameof(OnAttachedToVisualTree)} (Child.Name={Child?.Name})");
+            if (Child?.Parent is ContentDecorator contentDecorator)
+            {
+                Debug.WriteLine($"    [{_id}] Child.Parent._id={contentDecorator._id}");
+            }
         }
 
         /// <inheritdoc/>
@@ -54,6 +68,10 @@ namespace Dock.Avalonia.Controls
         {
             base.OnDetachedFromVisualTree(e);
             Debug.WriteLine($"[{_id}] {nameof(OnDetachedFromVisualTree)} (Child.Name={Child?.Name})");
+            if (Child?.Parent is ContentDecorator contentDecorator)
+            {
+                Debug.WriteLine($"    [{_id}] Child.Parent._id={contentDecorator._id}");
+            }
         }
     }
 }
