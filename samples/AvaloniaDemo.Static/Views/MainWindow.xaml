@@ -69,13 +69,13 @@
                     </DataTemplate>
                 </ComboBox.DataTemplates>
             </ComboBox>
-            <ContentControl Content="{Binding SelectedItem2}" Grid.Row="1">
-                <ContentControl.DataTemplates>
+            <Carousel Items="{Binding Items2}" IsVirtualized="False" SelectedItem="{Binding SelectedItem2}" Grid.Row="1">
+                <Carousel.DataTemplates>
                     <DataTemplate>
                         <Decorator Child="{Binding Content}"/>
                     </DataTemplate>
-                </ContentControl.DataTemplates>
-            </ContentControl>
+                </Carousel.DataTemplates>
+            </Carousel>
         </Grid>
     </Grid>
 </Window>
